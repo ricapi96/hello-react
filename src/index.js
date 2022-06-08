@@ -2,20 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-function Hello({ library, message, number }) {
-  
+
+function Lake({ name }) {
   return (
-    <div>
-      <h1>Welcome to {library}!</h1>
-      <p>{message}</p>
-      <p>How many number of props is {number}</p>
-      <p>{number} Props Total</p>
-    </div>
-  );
+    <h1>{name}</h1>
+  )
+}
+function App() {
+   return (<div>
+     <Lake name="Lake Tahoe" />
+     <Lake name="Lake Lanier" />
+     <Lake name="Crystal Lake" />
+   </div>);
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Hello 
-  library="React" 
-  message="add dynamic data!" 
-  number={3} />);
+root.render(
+  <App />
+);
