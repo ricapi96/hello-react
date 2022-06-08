@@ -2,21 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+const lakeList = [
+  "Lake Juliette", 
+  "Erica Lake", 
+  "Lady Lake"
+];
 
-function Lake({ name }) {
-  return (
-    <h1>{name}</h1>
-  )
-}
-function App() {
-   return (<div>
-     <Lake name="Lake Tahoe" />
-     <Lake name="Lake Lanier" />
-     <Lake name="Crystal Lake" />
-   </div>);
+function App({ lakes }) {
+   return (
+     <ul>
+       {lakes.map(lake => <li>{lake}</li>)}
+     </ul>
+    );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <App />
+  <App lakes={lakeList}/>
 );
