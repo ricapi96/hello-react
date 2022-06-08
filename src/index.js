@@ -2,20 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-function Hello(props) {
-  console.log(Object.keys(props));
+function Hello({ library, message, number }) {
+  
   return (
     <div>
-      <h1>Welcome to {props.library}!</h1>
-      <p>{props.message}</p>
-      <p>How many number of props is {props.number}</p>
-      <p>{Object.keys(props).length} Props Total</p>
+      <h1>Welcome to {library}!</h1>
+      <p>{message}</p>
+      <p>How many number of props is {number}</p>
+      <p>{number} Props Total</p>
     </div>
   );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Hello 
-  library="Vue" 
-  message="Have fun!" 
+  library="React" 
+  message="add dynamic data!" 
   number={3} />);
