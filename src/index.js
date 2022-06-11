@@ -1,32 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import "./index.css";
 
-function England() {
+
+function App() {
+  const [status, setStatus] = useState("Open");
   return (
     <div>
-      <h1>Visit Stonehenge!</h1>
+      <h1>Status: {status}</h1>
+      <button onClick={() => setStatus("Open")}>Open</button>
+      <button onClick={() => setStatus("Back in 5")}>Break</button>
+      <button onClick={() => setStatus("Closed")}>Closed</button>
+      
     </div>
   );
 }
 
-function London() {
-  return (
-    <div>
-      <h1>Visit Buckingham Palace!</h1>
-    </div>
-  );
-}
-
-function App(props) {
-  if(props.tour === "country") {
-    return <England />;
-  } else if (props.tour === "city") {
-  return <London />;
-}
-}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <App tour="country"/>
+  <App />
 );
