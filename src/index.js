@@ -2,32 +2,29 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-function App() {
-  const [val, setVal] = useState("");
-  const [val2, setVal2] = useState("");
+function GithubUser({ login }) {
+    const [data, setData] = useState(null);
+    useEffect(() => {
+      fetch(`https://api.github.com/users/${login}`)
+        .then(res => res.json())
+        .then(setData)
+        .catch(console.error);
+    }, []);
 
-  useEffect(() => {
-    console.log(`field 1: ${val}`);
-  }, [val]); 
+    if (data) {
+      return <div>
+        <h1>{data.login}</h1>
+        <img src={data.avatar_url} width={100} />
+      </div>
+    }
+    return null;
+  }
 
-  useEffect(() => {
-    console.log(`field 2: ${val2}`);
-  }, [val, val2]);
+  function App() {
+    return <GithubUser login="ricapi96" />;
+  }
 
-  return (
-    <>
-    <label>
-      Favorite Phrase:
-      <input value={val} onChange={e => setVal(e.target.value)}/>
-    </label>
-    <br/>
-    <label>
-      Second Favorite Phrase:
-      <input value={val2} onChange={e => setVal2(e.target.value)}/>
-    </label>
-    </>
-  )
-}
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
