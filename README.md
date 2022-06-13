@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+#### `npm install -g, serve` installs serve dependency
+
+#### `serve -s build` serves the build folder up on localhost:5000.
+
+#### Netlify deployed App
+- https://nimble-faloodeh-51d0dd.netlify.app/
